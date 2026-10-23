@@ -1439,7 +1439,7 @@ async function submitBooking(){
   const services=bk.sel.map(k=>({key:k,name:SV[k].name,price:priceOf(bk.model,k)}));
   const id=newCode();
   const order={id,name:bk.name,phone:bk.phone,email:bk.email,brand:BRANDS[i.bk].label,model:bk.model,services,total:totalFor(bk.model,bk.sel),delivery:'visit',date:bk.date,time:bk.time,desc:bk.desc,status:'booked',tech:'',history:[{status:'booked',time:hhmm(),note:'Онлайнаар цаг захиалсан.'}],terms:{accepted:true,at:new Date().toISOString()},marketing:!!bk.mkt,createdAt:new Date().toISOString()};
-  try{await createOrder(order);}catch(e){reset();if(e&&e.message==='slot_full'){bk.time=null;delete bkCounts[bk.date];return err('Энэ цаг дүүрсэн байна. Буцаж өөр цаг сонгоно уу.');}console.error(e);return err('Захиалгыг хадгалж чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.');}
+  try{await createOrder(order);}catch(e){reset();if(e&&e.message==='slot_full'){bk.time=null;delete bkCounts[bk.date];return err('Энэ цаг дүүрсэн байна. Буцаж өөр цаг сонгоно уу.');}console.error(e);return err('Захиалгыг хадгалж чадсангүй. '+(FB.on?fbHint(e):'Дахин оролдоно уу.'));}
   rememberCode(id);
   bk.done=order;bk.date=null;bk.time=null;bk.name=bk.phone=bk.email=bk.desc='';bk.terms=false;bk.mkt=false;
   if(location.hash==='#booking/done')route();else location.hash='booking/done';
@@ -1587,6 +1587,30 @@ function drawAdminDetail(){
   <button class="del" data-act="admDel">${icon('trash',14)} ${adm.delId===o.id?'Дахин дарж устгахыг баталгаажуулна уу':'Захиалга устгах'}</button>`;
 }
 function drawAdminAll(){drawAdminStats();drawAdminList();drawAdminDetail();}
+
+const FBHINT={
+ 'permission-denied':'Firestore Rules тавиагүй эсвэл Publish хийгээгүй байна. Rules таб дээр firestore.rules-ийг тавьж Publish дарна уу.',
+ 'unavailable':'Firestore Database үүсгээгүй эсвэл интернэт тасарсан байна. Build → Firestore Database → Create database.',
+ 'failed-precondition':'Firestore Database үүсгээгүй байна. Build → Firestore Database → Create database.',
+ 'not-found':'Firestore Database үүсгээгүй байна. Build → Firestore Database → Create database.',
+ 'auth/unauthorized-domain':'Энэ сайтын хаягийг зөвшөөрөөгүй байна. Authentication → Settings → Authorized domains дээр сайтынхаа хаягийг нэмнэ үү.',
+ 'auth/invalid-credential':'Имэйл эсвэл нууц үг буруу байна.',
+ 'auth/wrong-password':'Имэйл эсвэл нууц үг буруу байна.',
+ 'auth/user-not-found':'Ийм имэйлтэй хэрэглэгч үүсгээгүй байна. Authentication → Users → Add user.',
+ 'auth/operation-not-allowed':'Email/Password нэвтрэлт идэвхжээгүй байна. Authentication → Sign-in method → Email/Password → Enable.',
+ 'auth/invalid-api-key':'firebase-config.js доторх apiKey буруу байна. Firebase дээрээс дахин хуулна уу.',
+ 'auth/api-key-not-valid':'firebase-config.js доторх apiKey буруу байна. Firebase дээрээс дахин хуулна уу.',
+ 'auth/network-request-failed':'Интернэт холболт алдаатай байна.',
+ 'auth/too-many-requests':'Хэт олон оролдлого хийлээ. Хэдэн минутын дараа дахин оролдоно уу.'
+};
+const fbHint=e=>{const c=(e&&(e.code||e.message))||'';return FBHINT[c]||'Алдааны код: '+esc(c);};
+async function fbDiag(){
+  const el=$('#admDiag');if(!el)return;
+  if(!FB.on){el.innerHTML='⚠ <b>Туршилтын горим.</b> firebase-config.js ачаалагдаагүй эсвэл хоосон (null) байна. Файл GitHub-д зөв нэрээр (firebase-config.js) орсон эсэх, Vercel шинэчлэгдсэн эсэхийг шалгана уу.';return;}
+  try{await FB.init();}catch(e){console.error(e);el.innerHTML='✖ Firebase сан ачаалж чадсангүй (интернэт холболт?). '+esc(e.message||e);return;}
+  try{const {doc,getDoc}=FB.m;await getDoc(doc(FB.db,'slots','ping'));el.innerHTML='✔ Firebase холбогдсон (төсөл: <b>'+esc(FB.cfg.projectId)+'</b>)';}
+  catch(e){console.error(e);el.innerHTML='✖ Firestore-д хандаж чадсангүй. '+fbHint(e);}
+}
 async function adminLoad(){try{adm.orders=await listOrders();adm.err=null;}catch(e){console.error(e);adm.orders=[];adm.err=e;}}
 async function admListen(){
   if(!FB.on||admUnsub)return;await FB.init();
@@ -1596,15 +1620,15 @@ async function admListen(){
 async function renderAdmin(){
   const root=$('#admRoot');
   if(FB.on){
-    try{await FB.init();}catch(e){root.innerHTML='<div class="card gate"><h3>Firebase-д холбогдож чадсангүй</h3><p>Интернэт холболт болон firebase-config.js файлаа шалгана уу.</p></div>';return;}
+    try{await FB.init();}catch(e){root.innerHTML='<div class="card gate"><h3>Firebase-д холбогдож чадсангүй</h3><p>Интернэт холболт болон firebase-config.js файлаа шалгана уу.</p><small>'+esc((e&&e.message)||e)+'</small></div>';return;}
     if(!adm.authChecked){root.innerHTML='<div class="card gate"><p>Ачаалж байна…</p></div>';return;}
   }
   if(!adm.authed){
     const logo='<span class="logo-img" style="width:72px;height:72px;margin:0 auto 14px" role="img" aria-label="Лого"></span>';
     root.innerHTML=FB.on
-      ?`<div class="card gate">${logo}<h3>Админ самбар</h3><p>Techgenie — захиалгын удирдлага</p><input type="email" id="admEmail" placeholder="Имэйл" autocomplete="username" style="font-family:inherit;text-align:center"><input type="password" id="admPw" placeholder="Нууц үг" autocomplete="current-password"><div class="err" id="admErr" hidden>Имэйл эсвэл нууц үг буруу байна.</div><button class="btn btn-dark btn-block" data-act="admLogin">Нэвтрэх</button></div>`
-      :`<div class="card gate">${logo}<h3>Админ самбар</h3><p>Techgenie — захиалгын удирдлага</p><input type="password" id="admPw" placeholder="Нууц үг" autocomplete="off"><div class="err" id="admErr" hidden>Нууц үг буруу байна.</div><button class="btn btn-dark btn-block" data-act="admLogin">Нэвтрэх</button><small>Демо нууц үг: <b class="mono">цех2026</b><br>Энэ нь зөвхөн туршилтын горим — захиалга зөвхөн энэ браузерт хадгалагдана.</small></div>`;
-    $('#admPw').addEventListener('keydown',e=>{if(e.key==='Enter')H.admLogin();});return;
+      ?`<div class="card gate">${logo}<h3>Админ самбар</h3><p>Techgenie — захиалгын удирдлага</p><input type="email" id="admEmail" placeholder="Имэйл" autocomplete="username" style="font-family:inherit;text-align:center"><input type="password" id="admPw" placeholder="Нууц үг" autocomplete="current-password"><div class="err" id="admErr" hidden>Имэйл эсвэл нууц үг буруу байна.</div><button class="btn btn-dark btn-block" data-act="admLogin">Нэвтрэх</button><small id="admDiag" style="margin-top:14px">Холболт шалгаж байна…</small></div>`
+      :`<div class="card gate">${logo}<h3>Админ самбар</h3><p>Techgenie — захиалгын удирдлага</p><input type="password" id="admPw" placeholder="Нууц үг" autocomplete="off"><div class="err" id="admErr" hidden>Нууц үг буруу байна.</div><button class="btn btn-dark btn-block" data-act="admLogin">Нэвтрэх</button><small>Демо нууц үг: <b class="mono">цех2026</b><br>Энэ нь зөвхөн туршилтын горим — захиалга зөвхөн энэ браузерт хадгалагдана.</small><small id="admDiag" style="margin-top:14px"></small></div>`;
+    $('#admPw').addEventListener('keydown',e=>{if(e.key==='Enter')H.admLogin();});fbDiag();return;
   }
   drawAdminSkeleton();
   if(FB.on){admListen();await adminLoad();}else adm.orders=await listOrders();
@@ -1646,7 +1670,7 @@ const H={
   wcClose(){$('#wcard').hidden=true;},
   wcPrint(){document.body.classList.add('print-card');const off=()=>{document.body.classList.remove('print-card');window.removeEventListener('afterprint',off);};window.addEventListener('afterprint',off);setTimeout(()=>{try{window.print();}catch(e){off();}},50);},
   async admLogin(){
-    if(FB.on){const e=(($('#admEmail')||{}).value||'').trim(),p=($('#admPw')||{}).value||'';try{await FB.init();await FB.m.signInWithEmailAndPassword(FB.auth,e,p);}catch(err){console.error(err);$('#admErr').hidden=false;}return;}
+    if(FB.on){const e=(($('#admEmail')||{}).value||'').trim(),p=($('#admPw')||{}).value||'';try{await FB.init();await FB.m.signInWithEmailAndPassword(FB.auth,e,p);}catch(err){console.error(err);const el=$('#admErr');el.textContent=fbHint(err);el.hidden=false;}return;}
     const v=($('#admPw')||{}).value;if(v==='цех2026'){adm.authed=true;renderAdmin();}else{$('#admErr').hidden=false;}
   },
   async admLogout(){if(admUnsub){admUnsub();admUnsub=null;}adm.orders=[];adm.sel=null;try{await FB.m.signOut(FB.auth);}catch(e){}},

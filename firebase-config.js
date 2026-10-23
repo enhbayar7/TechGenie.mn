@@ -1,3 +1,6 @@
+// FIREBASE ТОХИРГОО — Techgenie (төсөл: techgenie-ad2d4)
+// Энэ тохиргоо нууц биш (веб хуудсанд нээлттэй байдаг). Хамгаалалт нь Firestore rules дотор.
+
 window.FIREBASE_CONFIG = {
   apiKey: "AIzaSyA5L6XTCj82c_7ne5PVdLnc-nglh67909M",
   authDomain: "techgenie-ad2d4.firebaseapp.com",

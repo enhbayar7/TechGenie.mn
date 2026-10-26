@@ -8,9 +8,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#17140D; --base:#FBF8F0; --paper:#FFFFFF;
-    --primary:#0B0B0C; --primary-dark:#17130B; --accent:#8A6416;
-    --steel:#F5EBD0; --mono-text:#5E5646; --line:#E6DDC6;
+    --ink:#0F1B2D; --base:#F6F9FF; --paper:#FFFFFF;
+    --primary:#0B1B33; --primary-dark:#12284A; --accent:#1A57BF;
+    --steel:#EAF2FF; --mono-text:#4B5B73; --line:#DDE5F0;
     --radius:20px; --shadow:0 1px 2px rgba(23,20,13,.05),0 8px 24px rgba(23,20,13,.08);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
@@ -21,16 +21,16 @@
   a{color:inherit;}
   .wrap{max-width:1000px; margin:0 auto; padding:0 24px;}
 
-  header.nav{position:sticky; top:0; z-index:30; background:#0B0B0C; backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  header.nav{position:sticky; top:0; z-index:30; background:#0B1B33; backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
   .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; max-width:1000px; margin:0 auto;}
   .logo{display:flex; align-items:center; gap:10px; font-family:'Inter',sans-serif; font-weight:700; font-size:1.02rem;}
   .logo .mark{width:30px; height:30px; border-radius:8px; background:var(--primary);}
   .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 18px; border-radius:8px; font-weight:600; font-size:.88rem; border:1.5px solid transparent; cursor:pointer; text-decoration:none;}
-  .btn-primary{background:linear-gradient(135deg,#F0D27F,#D4A93C 48%,#B8892B); color:#17140D;}
+  .btn-primary{background:linear-gradient(135deg,#4F9BFF,#2A73E8 48%,#1E63D6); color:#fff;}
   .btn-ghost{background:transparent; border:1.5px solid var(--ink); color:var(--ink);}
 
   .hero{padding:52px 0 20px;}
-  .hero .kicker{color:#8A6416;font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--primary); background:var(--steel); padding:6px 12px; border-radius:6px; display:inline-block; margin-bottom:16px;}
+  .hero .kicker{color:#1A57BF;font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums; font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--primary); background:var(--steel); padding:6px 12px; border-radius:6px; display:inline-block; margin-bottom:16px;}
   .hero h1{font-size:clamp(1.7rem,3.4vw,2.4rem); margin-bottom:14px;}
   .hero p{color:var(--mono-text); font-size:1.02rem; max-width:640px;}
 
@@ -61,13 +61,13 @@
     margin-top:18px; display:flex; align-items:center; gap:10px; font-size:.86rem;
     background:var(--base); border:1px dashed var(--line); border-radius:8px; padding:10px 14px; color:var(--mono-text);
   }
-  .price-hint .tag{font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums; font-weight:700; color:#8A6416;}
+  .price-hint .tag{font-family:'Inter',sans-serif;font-variant-numeric:tabular-nums; font-weight:700; color:#1A57BF;}
 
   .video-box{
     margin-top:20px; border:1.5px dashed var(--line); border-radius:10px; padding:22px;
     display:flex; align-items:center; gap:16px; background:var(--base);
   }
-  .video-box .play{background:#17140D;
+  .video-box .play{background:#0F1B2D;
     width:46px; height:46px; border-radius:50%; background:var(--primary); flex-shrink:0;
     display:flex; align-items:center; justify-content:center;
   }
@@ -86,26 +86,26 @@
     .illus{max-width:180px; margin:0 auto;}
   }
 
-  header.nav{border-bottom:1px solid #3A2F12}
-  .logo{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.18em;color:#EBCB78;font-size:1.05rem}
+  header.nav{border-bottom:1px solid #1F3358}
+  .logo{font-family:'Cormorant Garamond',serif;font-weight:700;letter-spacing:.18em;color:#8DB8FF;font-size:1.05rem}
   .logo .mark{width:42px;height:42px;border-radius:50%;background:url("data:image/webp;base64,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") center/cover no-repeat}
-  .hero .kicker{color:#8A6416}
-html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,input,select,textarea{font-family:inherit}</style>
+  .hero .kicker{color:#1A57BF}
+html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,input,select,textarea{font-family:inherit}header.nav{background:#fff!important;border-bottom:1px solid #E1E9F5!important}.logo{color:#0F1B2D!important}.btn-primary{color:#fff!important}</style>
 </head>
 <body>
 
 <header class="nav">
   <div class="nav-inner">
     <div class="logo"><span class="mark"></span> TECHGENIE</div>
-    <a href="index.html#repair" class="btn btn-primary">Үнэлгээ авах →</a>
+    <a href="index.html#repair" class="btn btn-primary">Үнэ харах →</a>
   </div>
 </header>
 
 <div class="hero">
   <div class="wrap">
-    <span class="kicker">Эвдрэлийн зааварчилгаа</span>
-    <h1>Таны утсанд юу тохиолдсоныг ойлгоорой</h1>
-    <p>Доорх зургууд, тайлбар нь өөрийн утасны эвдрэлийг таньж, оношилгооны хуудсанд зөв сонголт хийхэд тусална. Мэргэжлийн эцсийн үнэлгээг манай техникч л өгнө.</p>
+    <span class="kicker">Эвдрэлийн төрлүүд</span>
+    <h1>Эвдрэлийн төрөл, шинж тэмдэг</h1>
+    <p>Доорх тайлбар нь төхөөрөмжийн эвдрэлийг тодорхойлж, засварын төрлөө зөв сонгоход туслана. Эцсийн оношийг техникч үзлэгийн үед тогтооно.</p>
 
     <div class="toc">
       <a href="#screen">Дэлгэц хагарсан</a>
@@ -125,25 +125,17 @@ html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,inp
       <div class="illus">
         <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="45" y="20" width="70" height="120" rx="10" stroke="#94A3B8" stroke-width="2"/>
-          <path d="M50 45 L90 60 L70 75 L110 100 L60 90 L75 130" stroke="#B8892B" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M50 45 L90 60 L70 75 L110 100 L60 90 L75 130" stroke="#1E63D6" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           <circle cx="80" cy="132" r="4" stroke="#94A3B8" stroke-width="1.5"/>
         </svg>
       </div>
       <div>
         <span class="entry-num">01</span>
         <h2>Дэлгэц хагарсан / харагдахгүй</h2>
-        <p class="lead">Унасан, дарагдсан, эсвэл цохилт авсны улмаас гарган гялгар шил хагарах, доод LCD давхарга гэмтэж зураг гажих, өнгө алдагдах зэрэг тохиолддог.</p>
-        <h3>Юу анзаарах вэ</h3>
-        <ul>
-          <li>Шилэн гадаргуу хагарсан ч мэдрэгч (touch) ажилладаг эсэх</li>
-          <li>Зураг харагдахгүй, зурвас (тасархай шугам) гарч байгаа эсэх</li>
-          <li>Хагарсан газраар усны хамгаалалт алдагдсан тул усны нөлөөллөөс болгоомжлох</li>
-        </ul>
-        <div class="price-hint"><span class="tag">Үнэ загвараас хамаарна</span> · Дэлгэцийн үнийг <a href="index.html#repair" style="color:#8A6416;font-weight:700">Засвар & Үнэ</a> хэсгээс загвараа сонгож харна уу →</div>
-        <div class="video-box">
-          <div class="play"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="vtext"><strong>Засварын видео</strong>Дэлгэц солих процессын видео тун удахгүй нэмэгдэнэ</div>
-        </div>
+        <p class="lead">Төхөөрөмж унах, дарагдах эсвэл хүчтэй цохилтод өртсөнөөс дэлгэцийн шил хагарах, зураг гажих, өнгө алдагдах, мэдрэгч ажиллахгүй болох зэрэг эвдрэл гардаг.</p>
+        <h3>Анхаарах зүйл</h3>
+        <ul><li>Шил хагарсан ч мэдрэгч хэвийн ажиллаж байгаа эсэх</li><li>Дэлгэц дээр зураас, толбо гарах, зураг харагдахгүй байх</li><li>Хагарсан дэлгэцээр тоос, чийг нэвтрэх эрсдэлтэй тул удаан хэрэглэхгүй байх</li></ul>
+        <div class="price-hint"><span class="tag">Үнэ загвараас хамаарна</span> · Дэлгэцийн үнийг <a href="index.html#repair" style="color:#1A57BF;font-weight:700">Засвар, үнэ</a> хэсгээс загвараа сонгож үнийг харна уу →</div>
       </div>
     </div>
   </div>
@@ -154,25 +146,17 @@ html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,inp
         <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="55" y="35" width="50" height="90" rx="8" stroke="#94A3B8" stroke-width="2"/>
           <rect x="70" y="26" width="20" height="10" rx="2" fill="#94A3B8"/>
-          <rect x="62" y="85" width="36" height="32" rx="3" fill="#B8892B" opacity=".85"/>
+          <rect x="62" y="85" width="36" height="32" rx="3" fill="#1E63D6" opacity=".85"/>
           <line x1="62" y1="70" x2="98" y2="70" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3"/>
         </svg>
       </div>
       <div>
         <span class="entry-num">02</span>
         <h2>Батерей хурдан хорогдох</h2>
-        <p class="lead">Уртасгаж ашигласны улмаас батерейн багтаамж багасах, эсвэл гэнэт унтрах, хурдан халах зэрэг шинж тэмдэг илэрдэг. Литийн батерей 300-500 удаагийн цэнэглэлтийн дараа хурдан муудаж эхэлдэг.</p>
-        <h3>Юу анзаарах вэ</h3>
-        <ul>
-          <li>Утас хэвийн хэмжээнд цэнэглэгдсэн ч богино хугацаанд дуусах</li>
-          <li>Ашиглаж байхад хэт халах</li>
-          <li>Батерейн хувь гэнэт унах (жишээ: 30%-с 5% руу шууд шилжих)</li>
-        </ul>
-        <div class="price-hint"><span class="tag">Үнэ загвараас хамаарна</span> · Батерейн үнийг <a href="index.html#repair" style="color:#8A6416;font-weight:700">Засвар & Үнэ</a> хэсгээс загвараа сонгож харна уу →</div>
-        <div class="video-box">
-          <div class="play"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="vtext"><strong>Засварын видео</strong>Батерей солих процессын видео тун удахгүй нэмэгдэнэ</div>
-        </div>
+        <p class="lead">Батерейг удаан хэрэглэснээр багтаамж буурч, цэнэг хурдан дуусах, төхөөрөмж гэнэт унтрах, хэт халах шинж тэмдэг илэрдэг.</p>
+        <h3>Анхаарах зүйл</h3>
+        <ul><li>Цэнэг богино хугацаанд дуусах</li><li>Ашиглах үед хэт халах</li><li>Батерейн хувь гэнэт огцом буурах (жишээ нь 30%-аас 5% руу)</li></ul>
+        <div class="price-hint"><span class="tag">Үнэ загвараас хамаарна</span> · Батерейн үнийг <a href="index.html#repair" style="color:#1A57BF;font-weight:700">Засвар, үнэ</a> хэсгээс загвараа сонгож үнийг харна уу →</div>
       </div>
     </div>
   </div>
@@ -190,18 +174,10 @@ html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,inp
       <div>
         <span class="entry-num">03</span>
         <h2>Ус орсон</h2>
-        <p class="lead">Ус, чийг орсон тохиолдолд самбар исэлдэх (corrosion) эрсдэлтэй тул аль болох хурдан унтрааж, өнгөрсөн цагт бус, шууд мэргэжилтэнд үзүүлэх нь чухал.</p>
-        <h3>Юу анзаарах вэ, юу хийж болохгүй</h3>
-        <ul>
-          <li>Утсаа асаахыг бүү оролд — богино холболт үүсгэж болзошгүй</li>
-          <li>Будаа, хатаагуур зэрэгт хийх шаардлагагүй — утсыг өөрөө задлахыг бүү оролдоорой</li>
-          <li>Аль болох түргэн мэргэжилтэнд авчирна уу — 24 цагийн дотор ирвэл сэргээх магадлал өндөр</li>
-        </ul>
+        <p class="lead">Ус, чийг орсон тохиолдолд эх хавтан исэлдэж гэмтэх эрсдэлтэй тул аль болох түргэн мэргэжилтэнд үзүүлэх нь чухал.</p>
+        <h3>Анхаарах зүйл</h3>
+        <ul><li>Төхөөрөмжийг асаах, цэнэглэхийг оролдохгүй байх</li><li>Хатаагуур зэргээр хатаах, өөрөө задлахгүй байх</li><li>Боломжтой бол даруй үзлэгт авчрах</li></ul>
         <div class="price-hint"><span class="tag">Үнийг утсаар лавлана уу</span> · Ус орсон утасны үнэ гэмтлийн зэргээс хамаарна: <b>8880-9051</b></div>
-        <div class="video-box">
-          <div class="play"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="vtext"><strong>Засварын видео</strong>Ус орсон утасны цэвэрлэгээний видео тун удахгүй нэмэгдэнэ</div>
-        </div>
       </div>
     </div>
   </div>
@@ -217,18 +193,10 @@ html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,inp
       <div>
         <span class="entry-num">04</span>
         <h2>Огт асахгүй байна</h2>
-        <p class="lead">Энэ шинж тэмдэг олон үндэслэлтэй байж болно — цэнэглэх системийн эвдрэл, программ хангамжийн алдаа, самбарын гэмтэл гэх мэт. Иймд эхлээд нарийвчилсан үнэлгээ хийх шаардлагатай.</p>
-        <h3>Юу анзаарах вэ</h3>
-        <ul>
-          <li>Цэнэглэгчид залгахад ямар нэгэн дохио (чичиргээ, дэлгэц анивчих) байгаа эсэх</li>
-          <li>Өмнө нь усанд орсон, унасан зэрэг тохиолдол байсан эсэх</li>
-          <li>Сүүлд ямар programm суулгасан, шинэчилсэн эсэхээ санаж үзэх</li>
-        </ul>
+        <p class="lead">Төхөөрөмж огт асахгүй, цэнэглэгдэхгүй байх нь цэнэглэх хэсэг, батерей, программ хангамж, эх хавтангийн гэмтэл зэрэг олон шалтгаантай тул эхлээд оношилгоо шаардлагатай.</p>
+        <h3>Анхаарах зүйл</h3>
+        <ul><li>Цэнэглэгчид залгахад дохио (чичиргээ, дэлгэц гэрэлтэх) өгч байгаа эсэх</li><li>Өмнө нь ус орсон, унасан зэрэг тохиолдол байсан эсэх</li><li>Сүүлд программ шинэчилсэн эсэх</li></ul>
         <div class="price-hint"><span class="tag">Үнийг утсаар лавлана уу</span> · Асахгүй утасны оношилгоо, үнийг утсаар лавлана: <b>8880-9051</b></div>
-        <div class="video-box">
-          <div class="play"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="vtext"><strong>Засварын видео</strong>Оношилгооны процессын видео тун удахгүй нэмэгдэнэ</div>
-        </div>
       </div>
     </div>
   </div>
@@ -239,25 +207,17 @@ html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,inp
         <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="55" y="45" width="50" height="70" rx="8" stroke="#94A3B8" stroke-width="2"/>
           <circle cx="80" cy="80" r="16" stroke="#94A3B8" stroke-width="2"/>
-          <circle cx="80" cy="80" r="7" fill="#B8892B" opacity=".8"/>
+          <circle cx="80" cy="80" r="7" fill="#1E63D6" opacity=".8"/>
           <line x1="60" y1="60" x2="100" y2="100" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3"/>
         </svg>
       </div>
       <div>
         <span class="entry-num">05</span>
         <h2>Камер бүдгэрсэн / ажиллахгүй</h2>
-        <p class="lead">Зураг бүдэг гарах, автомат фокус ажиллахгүй болох, эсвэл камер апп нээгдэхгүй байх зэрэг нь линз бохирдох, cable гэмтэх, эсвэл модулийн эвдрэлээс үүсдэг.</p>
-        <h3>Юу анзаарах вэ</h3>
-        <ul>
-          <li>Зөвхөн нэг камер (урд/арын) ажиллахгүй байгаа эсэх, эсвэл бүгд эвдэрсэн эсэх</li>
-          <li>Апп нээхэд алдааны мэдэгдэл (“камерыг олсонгүй”) гарч байгаа эсэх</li>
-          <li>Линз дээр физик хагарал, толбо байгаа эсэх</li>
-        </ul>
-        <div class="price-hint"><span class="tag">Үнэ загвараас хамаарна</span> · Камерын үнийг <a href="index.html#repair" style="color:#8A6416;font-weight:700">Засвар & Үнэ</a> хэсгээс загвараа сонгож харна уу →</div>
-        <div class="video-box">
-          <div class="play"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="vtext"><strong>Засварын видео</strong>Камер модуль солих видео тун удахгүй нэмэгдэнэ</div>
-        </div>
+        <p class="lead">Зураг бүдэг гарах, фокус барихгүй байх, камер нээгдэхгүй байх нь линзний бохирдол эсвэл камерын модулийн эвдрэлтэй холбоотой байдаг.</p>
+        <h3>Анхаарах зүйл</h3>
+        <ul><li>Зөвхөн урд эсвэл арын камер ажиллахгүй байгаа эсэх</li><li>Камер нээхэд алдааны мэдэгдэл гарч байгаа эсэх</li><li>Линз дээр хагарал, толбо байгаа эсэх</li></ul>
+        <div class="price-hint"><span class="tag">Үнэ загвараас хамаарна</span> · Камерын үнийг <a href="index.html#repair" style="color:#1A57BF;font-weight:700">Засвар, үнэ</a> хэсгээс загвараа сонгож үнийг харна уу →</div>
       </div>
     </div>
   </div>
@@ -268,33 +228,25 @@ html{font-family:'Inter',system-ui,'Segoe UI',Roboto,Arial,sans-serif}button,inp
         <svg viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="45" y="20" width="70" height="120" rx="10" stroke="#94A3B8" stroke-width="2"/>
           <path d="M85 60 L75 60 L75 100 L85 100" fill="none" stroke="#94A3B8" stroke-width="2"/>
-          <path d="M85 65 Q100 80 85 95" stroke="#B8892B" stroke-width="2" fill="none" stroke-linecap="round"/>
-          <path d="M90 55 Q112 80 90 105" stroke="#B8892B" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
+          <path d="M85 65 Q100 80 85 95" stroke="#1E63D6" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M90 55 Q112 80 90 105" stroke="#1E63D6" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".5"/>
         </svg>
       </div>
       <div>
         <span class="entry-num">06</span>
         <h2>Чанга яригч / микрофон эвдэрсэн</h2>
-        <p class="lead">Дуу чимээ гарахгүй, эсвэл ярианы үед нөгөө тал сонсохгүй байх зэрэг нь тоос, чийг орсон эсвэл эд ангийн элэгдэлтэй холбоотой байдаг.</p>
-        <h3>Юу анзаарах вэ</h3>
-        <ul>
-          <li>Дуу огт гарахгүй юу, эсвэл чанар муудсан (шуугиантай, тасархай) уу</li>
-          <li>Ярианы үед л, эсвэл дуу/видео тоглуулахад ч бас гардаг уу</li>
-          <li>Микрофон, чанга яригч аль нь эвдэрсэн бэ гэдгээ ялгах (нөгөө тал сонсохгүй бол микрофон, өөрөө сонсохгүй бол чанга яригч)</li>
-        </ul>
+        <p class="lead">Дуу гарахгүй, шуугих, ярихад нөгөө тал сонсохгүй байх нь тоос, чийг орох эсвэл эд ангийн элэгдэлтэй холбоотой байдаг.</p>
+        <h3>Анхаарах зүйл</h3>
+        <ul><li>Дуу бүрэн гарахгүй эсвэл чанар муудсан эсэх</li><li>Яриа, медиа аль алинд нь гарч байгаа эсэх</li><li>Нөгөө тал сонсохгүй бол микрофон, өөрөө сонсохгүй бол чанга яригч гэмтсэн байж болно</li></ul>
         <div class="price-hint"><span class="tag">Үнийг утсаар лавлана уу</span> · Чанга яригч, микрофоны үнийг утсаар лавлана: <b>8880-9051</b></div>
-        <div class="video-box">
-          <div class="play"><svg viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7z"/></svg></div>
-          <div class="vtext"><strong>Засварын видео</strong>Чанга яригч солих видео тун удахгүй нэмэгдэнэ</div>
-        </div>
       </div>
     </div>
   </div>
 
   <div class="cta-bottom">
     <h2>Эвдрэлээ тодорхойлсон уу?</h2>
-    <p>Үнэлгээний тооцоолуур дээр очиж, яг үнэ, хугацаагаа шалгаарай.</p>
-    <a href="index.html#repair" class="btn btn-primary">Үнэлгээ авах →</a>
+    <p>Загвараа сонгож, засварын үнийг харна уу.</p>
+    <a href="index.html#repair" class="btn btn-primary">Үнэ харах →</a>
   </div>
 
 </div>

@@ -743,6 +743,10 @@ header.nav .mm-panel a:hover{color:var(--gold-hi)}
 .hero-stage.has-photo .hero-photo{opacity:1}
 .hero-stage.has-photo .hr-glow,.hero-stage.has-photo .hr-ring,.hero-stage.has-photo .hr-logo,.hero-stage.has-photo .hr-ph,.hero-stage.has-photo .hr-spark{display:none}
 header .logo,footer .ft-brand{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.ft-name{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.55rem;letter-spacing:.24em;color:#fff;line-height:1}
+.ft-soc{display:inline-flex;align-items:center;gap:9px;margin:20px 12px 0 0;padding:10px 18px;border:1px solid rgba(141,184,255,.45);border-radius:999px;color:#E8EFFA!important;font-weight:600;font-size:.88rem;transition:background .2s,border-color .2s}
+.ft-soc:hover{background:rgba(141,184,255,.16);border-color:#8DB8FF;color:#fff!important}
+.ft-soc svg{color:#8DB8FF}
 .ft-banner{display:block;height:0;padding-bottom:37.9%;background:#000 var(--banner) center/contain no-repeat;border-radius:6px}
 .ft-top{border-bottom:1px solid #1F3358;margin-bottom:34px;padding-bottom:34px}
 .ft-ban{max-width:720px;margin:0 auto}
@@ -1040,7 +1044,7 @@ footer{background:#0B1B33}
   <div class="wrap">
     <div class="ft-top"><div class="ft-ban"><a class="ft-banner" href="tel:+97688809051" aria-label="Phone Repair Shop — залгах 8880-9051"></a></div></div>
     <div class="ft-g">
-      <div><div class="ft-brand"><span class="logo-img" role="img" aria-label="Techgenie"></span></div></div>
+      <div><div class="ft-brand"><span class="logo-img" role="img" aria-label="Techgenie"></span><span class="ft-name">TECHGENIE</span></div><div id="ftSocial"></div></div>
       <div><h6>Мэдээлэл</h6><a href="#repair">Засвар, үнэ</a><a href="#track">Засварын явц</a><a href="#terms">Үйлчилгээний нөхцөл, гэрээ</a><a href="guide.html">Эвдрэлийн төрлүүд</a></div>
       <div><h6>Утасны засвар</h6><a href="#repair/apple">iPhone-ийн засвар</a><a href="#repair/samsung">Samsung-ийн засвар</a><a href="#repair">Бүх загвар</a></div>
       <div><h6>Холбоо барих</h6><div class="ft-hrs" id="hrsFt"></div></div><p style="margin-top:12px">Tedy Digital Center, 4 давхар, 14-1 тоот<br>Улаанбаатар, Монгол · 15171</p><p><i data-ic="phone" data-s="13"></i> <a href="tel:+97688809051" style="display:inline;color:#E8EFFA">8880-9051</a></p><div id="ftExtra"></div></div>
@@ -1098,7 +1102,7 @@ menu:'<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/>
 sparkle:'<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/>',
 award:'<circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/>',
 tag:'<path d="M12.59 2.59A2 2 0 0 0 11.17 2H4a2 2 0 0 0-2 2v7.17a2 2 0 0 0 .59 1.41l8.7 8.7a2.43 2.43 0 0 0 3.42 0l6.58-6.58a2.43 2.43 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/>',
-filter:'<path d="M22 3H2l8 9.46V19l4 2v-8.54z"/>',up:'<path d="m18 15-6-6-6 6"/>',walk:'<path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/>',truck:'<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',calendar:'<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',box:'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 8.7 5 8.7-5"/>',spark:'<rect x="8" y="4" width="8" height="17" rx="2"/><path d="M4 5v4M2 7h4"/><path d="M20 11v4M18 13h4"/>'
+filter:'<path d="M22 3H2l8 9.46V19l4 2v-8.54z"/>',up:'<path d="m18 15-6-6-6 6"/>',facebook:'<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',instagram:'<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>',walk:'<path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4"/><path d="M4 13h4"/>',truck:'<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',calendar:'<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>',box:'<path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><path d="m3.3 7 8.7 5 8.7-5"/>',spark:'<rect x="8" y="4" width="8" height="17" rx="2"/><path d="M4 5v4M2 7h4"/><path d="M20 11v4M18 13h4"/>'
 };
 const icon=(n,s=18)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${IC[n]||''}</svg>`;
 function initIcons(root=document){$$('[data-ic]',root).forEach(el=>{el.outerHTML=icon(el.dataset.ic,+el.dataset.s||18);});}
@@ -1468,7 +1472,7 @@ const SHOP={
   warrantyDays:null,           // БАТАЛГААНЫ ХУГАЦАА (хоног). null = одоогоор тодорхойгүй: баталгааны мэдээлэл, шалгах хэсэг нуугдана. Жишээ: 30
   slotMin:60,                  // нэг захиалгын цаг (минут)
   email:'',                    // жишээ: 'info@techgenie.mn' (хоосон бол харагдахгүй)
-  facebook:'',                 // жишээ: 'https://facebook.com/techgenie'
+  facebook:'https://www.facebook.com/profile.php?id=61595186343674',
   instagram:''                 // жишээ: 'https://instagram.com/techgenie'
 };
 const hoursFor=dow=>dow===0?SHOP.sun:dow===6?SHOP.sat:SHOP.weekday;
@@ -1477,7 +1481,9 @@ function renderHours(){
   const html=row('Даваа – Баасан:',SHOP.weekday)+row('Бямба:',SHOP.sat)+row('Ням:',SHOP.sun);
   ['hrsLoc','hrsFt'].forEach(id=>{const e=document.getElementById(id);if(e)e.innerHTML=html;});
   const x=document.getElementById('ftExtra');
-  if(x){x.innerHTML=(SHOP.email?`<p><i data-ic="mail" data-s="13"></i> <a href="mailto:${esc(SHOP.email)}" style="display:inline">${esc(SHOP.email)}</a></p>`:'')+(SHOP.facebook?`<p><a href="${esc(SHOP.facebook)}" target="_blank" rel="noopener" style="display:inline">Facebook</a></p>`:'')+(SHOP.instagram?`<p><a href="${esc(SHOP.instagram)}" target="_blank" rel="noopener" style="display:inline">Instagram</a></p>`:'');initIcons(x);}
+  if(x){x.innerHTML=SHOP.email?`<p><i data-ic="mail" data-s="13"></i> <a href="mailto:${esc(SHOP.email)}" style="display:inline">${esc(SHOP.email)}</a></p>`:'';initIcons(x);}
+  const sc=document.getElementById('ftSocial');
+  if(sc){const b=(u,ic,l)=>u?`<a class="ft-soc" href="${esc(u)}" target="_blank" rel="noopener noreferrer" aria-label="${l}">${icon(ic,18)}${l}</a>`:'';sc.innerHTML=b(SHOP.facebook,'facebook','Facebook')+b(SHOP.instagram,'instagram','Instagram');}
 }
 const SLOT_CAP=2; // нэг цагт авах хамгийн их захиалга (жишээ тохиргоо)
 const MONTHS=['1-р сар','2-р сар','3-р сар','4-р сар','5-р сар','6-р сар','7-р сар','8-р сар','9-р сар','10-р сар','11-р сар','12-р сар'];

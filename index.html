@@ -742,6 +742,7 @@ header.nav .mm-panel a:hover{color:var(--gold-hi)}
 .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:28px;border:1px solid rgba(59,130,246,.5);box-shadow:0 30px 60px rgba(0,0,0,.5);opacity:0;pointer-events:none;z-index:5}
 .hero-stage.has-photo .hero-photo{opacity:1}
 .hero-stage.has-photo .hr-glow,.hero-stage.has-photo .hr-ring,.hero-stage.has-photo .hr-logo,.hero-stage.has-photo .hr-ph,.hero-stage.has-photo .hr-spark{display:none}
+header .logo,footer .ft-brand{-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 .ft-banner{display:block;height:0;padding-bottom:37.9%;background:#000 var(--banner) center/contain no-repeat;border-radius:6px}
 .ft-top{border-bottom:1px solid #1F3358;margin-bottom:34px;padding-bottom:34px}
 .ft-ban{max-width:720px;margin:0 auto}
@@ -1039,7 +1040,7 @@ footer{background:#0B1B33}
   <div class="wrap">
     <div class="ft-top"><div class="ft-ban"><a class="ft-banner" href="tel:+97688809051" aria-label="Phone Repair Shop — залгах 8880-9051"></a></div></div>
     <div class="ft-g">
-      <div><div class="ft-brand"><span class="logo-img" role="img" aria-label="Лого"></span><span class="logo-txt">TECHGENIE<small>Phone Repair Shop</small></span></div><p>Ухаалаг утасны засвар үйлчилгээ: онлайн цаг захиалга, ил тод үнэ, засварын явцын хяналт.</p></div>
+      <div><div class="ft-brand"><span class="logo-img" role="img" aria-label="Techgenie"></span></div></div>
       <div><h6>Мэдээлэл</h6><a href="#repair">Засвар, үнэ</a><a href="#track">Засварын явц</a><a href="#terms">Үйлчилгээний нөхцөл, гэрээ</a><a href="guide.html">Эвдрэлийн төрлүүд</a></div>
       <div><h6>Утасны засвар</h6><a href="#repair/apple">iPhone-ийн засвар</a><a href="#repair/samsung">Samsung-ийн засвар</a><a href="#repair">Бүх загвар</a></div>
       <div><h6>Холбоо барих</h6><div class="ft-hrs" id="hrsFt"></div></div><p style="margin-top:12px">Tedy Digital Center, 4 давхар, 14-1 тоот<br>Улаанбаатар, Монгол · 15171</p><p><i data-ic="phone" data-s="13"></i> <a href="tel:+97688809051" style="display:inline;color:#E8EFFA">8880-9051</a></p><div id="ftExtra"></div></div>
@@ -1866,6 +1867,20 @@ $$('[data-stars]').forEach(el=>{el.innerHTML=starSvg.repeat(+el.dataset.stars);}
 renderHome();renderHours();renderHeroArt();renderHeroArt2();
 (function(){const hs=$('#heroSlides');if(!hs)return;heroAuto();hs.addEventListener('mouseenter',()=>clearInterval(hero.t));hs.addEventListener('mouseleave',heroAuto);let x0=null;hs.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});hs.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>50){heroGo(hero.i+(dx<0?1:-1));heroAuto();}},{passive:true});})();
 if(FB.on)FB.init().catch(e=>console.error('Firebase init failed',e));
+/* Нууц зам: логог 1.5 сек удаан дарах эсвэл 2.5 сек дотор 5 удаа дарвал админ руу орно (нэвтрэх хуудас нээгдэнэ) */
+(function(){
+  const T='header .logo, footer .ft-brand';let timer=null,fired=false,taps=[];
+  const go=()=>{fired=true;location.hash='admin';};
+  document.addEventListener('pointerdown',e=>{if(!e.target.closest(T))return;fired=false;clearTimeout(timer);timer=setTimeout(go,1500);},true);
+  ['pointerup','pointercancel','pointerleave'].forEach(ev=>document.addEventListener(ev,()=>clearTimeout(timer),true));
+  document.addEventListener('contextmenu',e=>{if(e.target.closest(T))e.preventDefault();},true);
+  document.addEventListener('click',e=>{
+    if(!e.target.closest(T))return;
+    if(fired){fired=false;e.preventDefault();e.stopPropagation();return;}
+    const now=Date.now();taps=taps.filter(x=>now-x<2500);taps.push(now);
+    if(taps.length>=5){taps=[];e.preventDefault();e.stopPropagation();location.hash='admin';}
+  },true);
+})();
 if(!SHOP.warrantyDays)warrantyOff();
 ensureSeed().then(route);
 })();

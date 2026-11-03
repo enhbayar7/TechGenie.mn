@@ -1,4 +1,4 @@
-// FIREBASE ТОХИРГОО — Techgenie (төсөл: techgenie-ad2d4)
+// FIREBASE ТОХИРГОО — Techgem (Firebase төслийн ID: techgenie-ad2d4, өөрчлөхгүй)
 // Энэ тохиргоо нууц биш (веб хуудсанд нээлттэй байдаг). Хамгаалалт нь Firestore rules дотор.
 
 window.FIREBASE_CONFIG = {
